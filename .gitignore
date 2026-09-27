@@ -1,0 +1,55 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment and Secret Files
+.env
+.env.*
+*.env
+server/.env
+!.env.example
+client/.env.example
+server/.env.example
+
+# Build Outputs
+dist/
+client/dist/
+dist-ssr/
+build/
+
+# Large Datasets & Raw Archive Dumps
+binance_btc_1m_master.csv
+/data/
+*.csv
+*.zip
+
+# Exception: Keep server/data configuration and scenario files
+!server/data/
+!server/data/**
+
+# Python cache & artifacts
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

@@ -1,0 +1,177 @@
+{
+  "scenarios": [
+    {
+      "id": "ftx_collapse",
+      "name": "FTX Collapse",
+      "subtitle": "Nov 2022",
+      "symbol": "BTCUSDT",
+      "startTime": "2022-11-08T00:00:00Z",
+      "endTime": "2022-11-08T18:00:00Z",
+      "dataSourceUrl": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-11.zip",
+      "cause": "LIQUIDITY CRISIS & INSOLVENCY",
+      "causeTag": "LIQUIDITY_CRISIS",
+      "difficulty": "CATASTROPHIC",
+      "stats": {
+        "maxDropPct": -25,
+        "durationHours": 18,
+        "peakLiqUSD": 830000000,
+        "totalLiqUSD": 2100000000,
+        "sizeMB": "24.1 MB"
+      },
+      "shortSummary": "Exchange insolvency triggered rapid unwinding of leverage, massive OI dumps, and catastrophic orderbook liquidity drain across all major pairs.",
+      "rootCause": "CoinDesk reported on Nov 2 that Alameda Research (FTX's sister firm) held $5.8B in FTT (FTX's own token) as primary collateral — a critical conflict of interest. Binance CEO CZ announced on Nov 6 that Binance would liquidate its entire $584M FTT position. This triggered a bank run on FTX with $6B in withdrawal requests in 72 hours.",
+      "keyMoments": [
+        { "time": "T-0 | 2022-11-08 00:00 UTC", "desc": "BTC: ~$21,200 | FTX still processing withdrawals slowly. Open Interest: ~$6.8B across all exchanges. Funding rate: +0.01% (slightly positive, market still optimistic)." },
+        { "time": "T+2h | 2022-11-08 02:00 UTC", "desc": "FTX pauses withdrawals for non-fiat assets. News breaks on Crypto Twitter. BTC begins sliding: $21,200 → $20,400 (-3.8%). First liquidation spike: ~$120M in long positions. Order books thin dramatically as market makers pull bids." },
+        { "time": "T+4h | 2022-11-08 04:00 UTC", "desc": "Binance signs non-binding LOI to acquire FTX. BTC briefly recovers to $20,800 on the news. False relief rally — lasts 45 minutes. Funding rate drops to -0.03% (market flipping bearish)." },
+        { "time": "T+6h | 2022-11-08 06:00 UTC", "desc": "Binance due diligence begins. Reports emerge of $8B hole in FTX balance sheet. BTC: $20,800 → $19,200 (-7.7% in 2 hours). Open Interest drops 18% in 90 minutes — mass position closing. Long/short ratio drops from 0.95 to 0.61 (extreme short pressure)." },
+        { "time": "T+9h | 2022-11-08 09:00 UTC", "desc": "Binance walks away from FTX acquisition deal. BTC: $19,200 → $17,800 (-15.9% from open). Liquidation cascade: $430M in 3 hours. Funding rate: -0.08% (highest negative reading in 14 months). FCSS would have peaked at: ~89 (CRISIS)." },
+        { "time": "T+12h | 2022-11-08 12:00 UTC", "desc": "BTC stabilizes at $17,600. Contagion spreads: SOL -30%, FTT -72%. Sam Bankman-Fried tweets that \"assets are fine\" — not believed. Recovery begins but volume remains 4× normal indicating continued panic." }
+      ],
+      "metricsNarrative": "• OI Δ: -22% in 6 hours (historic deleveraging pace).\n• Funding rate: flipped from +0.01% to -0.08% over 9 hours.\n• Long/short: 0.95 → 0.58 (extreme capitulation by longs).\n• Order flow: sell-side dominated at 73% of all taker volume.\n• Liq cascade: $830M total forced liquidations on Binance alone.",
+      "lessons": [
+        "1. When a major exchange halts withdrawals, BTC correlation with that exchange's token is irrelevant — ALL assets drop together.",
+        "2. The false recovery on the Binance LOI news (T+4h) is a classic \"dead cat bounce\" — ops teams should NOT reduce alert sensitivity during brief recoveries mid-crisis.",
+        "3. Long/short ratio dropping below 0.7 was a 90-minute early warning before the worst drop. This threshold should be monitored."
+      ]
+    },
+    {
+      "id": "china_ban_2021",
+      "name": "China Mining Ban Crash",
+      "subtitle": "May 2021",
+      "symbol": "BTCUSDT",
+      "startTime": "2021-05-19T00:00:00Z",
+      "endTime": "2021-05-19T12:00:00Z",
+      "dataSourceUrl": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-05.zip",
+      "cause": "REGULATORY SHOCK",
+      "causeTag": "REGULATORY_SHOCK",
+      "difficulty": "CATASTROPHIC",
+      "stats": {
+        "maxDropPct": -29.6,
+        "durationHours": 12,
+        "peakLiqUSD": 3800000000,
+        "totalLiqUSD": 8600000000,
+        "sizeMB": "14.2 MB"
+      },
+      "shortSummary": "Cascade liquidations driven by extreme FUD and institutional deleveraging. Over $8B in open interest wiped out in hours.",
+      "rootCause": "On May 18, Chinese financial regulators issued a joint statement banning financial institutions from offering cryptocurrency services, and Inner Mongolia province announced it would shut down all crypto mining operations. This followed Elon Musk's May 12 announcement that Tesla had suspended BTC payments, which had already dropped BTC from $58k to $46k. The combination of regulatory + environmental narrative created a perfect panic storm.",
+      "keyMoments": [
+        { "time": "T-0 | 2021-05-19 00:00 UTC", "desc": "BTC: ~$42,900. Greed/Fear Index: 27. Open Interest: ~$14.2B. Funding rate: -0.02%." },
+        { "time": "T+1h | 2021-05-19 01:00 UTC", "desc": "Asian markets open. South Korean exchange Upbit shows 12% premium. BTC: $42,900 → $41,100. First wave of liquidations: $280M." },
+        { "time": "T+2h | 2021-05-19 02:00 UTC", "desc": "China state media publishes full text of regulatory statement. BTC: $41,100 → $38,500 in 40 minutes (-6.3%). ETH -9%. Funding rate crashes to -0.06%. Exchange order books show 10× normal sell pressure. OI drops 8% in 90 minutes." },
+        { "time": "T+3h-4h | 2021-05-19 03:00-04:00 UTC", "desc": "CRITICAL MOMENT: Liquidation cascade begins in earnest. Key price levels violated: $40k support → $38k → $35k → $32k. $2.8B liquidated in this 90-minute window alone. Long/short ratio: 1.1 → 0.54 in 90 minutes. This is liquidation-feeding-liquidation." },
+        { "time": "T+5h | 2021-05-19 05:00 UTC", "desc": "BTC touches $30,200 intraday low (-29.6% from prior day's close of $42,900). $8.6B OI wiped. $3.8B total liquidations. Funding rate: -0.12%. FCSS would have peaked at: ~94 (MAXIMUM CRISIS)." },
+        { "time": "T+6h-8h | 2021-05-19 06:00-08:00 UTC", "desc": "Dip buyers step in at $30k support. BTC recovers to $38k. This 26% recovery in 3 hours is one of the fastest in crypto history. OFI flips to 68% buy-side." }
+      ],
+      "metricsNarrative": "• Price: -29.6% intraday.\n• OI Δ: -42% from session start to trough.\n• Funding: -0.12% (extreme negative).\n• Cascade pattern: each $2k price level broke within 5-8 minutes.",
+      "lessons": [
+        "1. Regulatory shocks from China affect the Asian trading session disproportionately (01:00-06:00 UTC).",
+        "2. When funding rate drops below -0.05%, the short-side crowding itself creates a snap-back risk.",
+        "3. Cascading support level breaks ($40k → $38k → $35k → $32k) are predictable in advance."
+      ]
+    },
+    {
+      "id": "covid_crash_2020",
+      "name": "COVID-19 Black Thursday",
+      "subtitle": "Mar 2020",
+      "symbol": "BTCUSDT",
+      "startTime": "2020-03-12T00:00:00Z",
+      "endTime": "2020-03-12T18:00:00Z",
+      "dataSourceUrl": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2020-03.zip",
+      "cause": "MACRO PANIC + EXCHANGE FAILURE",
+      "causeTag": "MACRO_PANIC",
+      "difficulty": "CATASTROPHIC",
+      "stats": {
+        "maxDropPct": -52.2,
+        "durationHours": 18,
+        "peakLiqUSD": 1300000000,
+        "totalLiqUSD": 2000000000,
+        "sizeMB": "18.5 MB"
+      },
+      "shortSummary": "Global flight to cash. BTC crashed 50% in 24 hours as BitMEX's matching engine went offline and institutional forced selling overwhelmed all bids.",
+      "rootCause": "On March 11, the WHO declared COVID-19 a pandemic. Institutional investors who had purchased BTC as a safe haven discovered it was highly correlated to risk assets during a liquidity crisis. They were forced to sell BTC to cover margin calls. Simultaneously, BitMEX (then the largest BTC derivatives exchange) had a \"DDoS attack\" that took their matching engine offline for 25 minutes at the worst moment.",
+      "keyMoments": [
+        { "time": "T-0 | 2020-03-12 00:00 UTC", "desc": "BTC: ~$7,900. Traditional markets in freefall globally. S&P 500 futures: -5% on the night. Gold also dropping (unusual)." },
+        { "time": "T+2h | 2020-03-12 02:00 UTC", "desc": "Asian markets close with massive losses. BTC: $7,900 → $7,200. First macro-driven wave." },
+        { "time": "T+4h | 2020-03-12 04:00 UTC", "desc": "European markets open sharply lower. Correlation between BTC and S&P 500 reaches 0.9. BTC: $7,200 → $6,500. Open Interest: BitMEX shows $1.1B in open long positions." },
+        { "time": "T+5h30m | 2020-03-12 05:30 UTC", "desc": "CRITICAL MOMENT: BitMEX matching engine goes offline. BTC was at $5,800 and falling fast. All forced selling routes to Binance, Deribit, OKEx, overwhelming their orderbooks. BTC: $5,800 → $4,850 in 15 minutes." },
+        { "time": "T+6h | 2020-03-12 06:00 UTC", "desc": "BitMEX comes back online. Negative feedback loop: BitMEX sells → Binance sells → OKEx sells. BTC: $4,850 → $3,780 intraday low. -52.2% from session open. FCSS equivalent: ~97." },
+        { "time": "T+8h | 2020-03-12 08:00 UTC", "desc": "Recovery begins. BTC: $3,780 → $5,500 (+45% from trough). Driven by bargain hunters, short covering, and BitMEX re-enabling withdrawals." }
+      ],
+      "metricsNarrative": "• Price: -52.2% peak to trough.\n• OI Δ: -58% (BitMEX alone saw $700M OI wiped).\n• Correlation to S&P 500: 0.87 on the day (normally 0.15).",
+      "lessons": [
+        "1. Exchange infrastructure failures during a crash amplify the crash. Prepare for 3-5× normal volume.",
+        "2. Traditional market hours (US open = 14:30 UTC) create a second crash wave even during crypto-specific crashes.",
+        "3. The 'uncorrelated asset' narrative breaks during true liquidity crises."
+      ]
+    },
+    {
+      "id": "luna_depeg_2022",
+      "name": "LUNA/UST Depeg",
+      "subtitle": "May 2022",
+      "symbol": "BTCUSDT",
+      "startTime": "2022-05-09T12:00:00Z",
+      "endTime": "2022-05-10T06:00:00Z",
+      "dataSourceUrl": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2022-05.zip",
+      "cause": "ALGORITHMIC STABLECOIN FAILURE",
+      "causeTag": "STABLECOIN_FAILURE",
+      "difficulty": "SEVERE",
+      "stats": {
+        "maxDropPct": -19.4,
+        "durationHours": 18,
+        "peakLiqUSD": 1100000000,
+        "totalLiqUSD": 1100000000,
+        "sizeMB": "15.0 MB"
+      },
+      "shortSummary": "Algorithmic stablecoin death spiral wiped $40B in value in 72 hours, triggering contagion liquidations across all crypto assets.",
+      "rootCause": "Terra's UST was an algorithmic stablecoin. When UST de-pegged, the mechanism required minting more LUNA, which destroyed LUNA's price and confidence in UST—an infinite death spiral. LFG held $3.5B in BTC as UST reserve and was forced to sell all of it.",
+      "keyMoments": [
+        { "time": "T-0 | 2022-05-09 12:00 UTC", "desc": "BTC: ~$32,500. UST trading at $0.985. LFG begins deploying BTC reserves to defend UST peg. Estimate: LFG selling ~$300M BTC/hour." },
+        { "time": "T+2h | 2022-05-09 14:00 UTC", "desc": "UST at $0.968. BTC: $32,500 → $31,200. On-chain data shows LFG wallet moving BTC." },
+        { "time": "T+5h | 2022-05-09 17:00 UTC", "desc": "UST drops to $0.91. BTC: $31,200 → $29,700. Funding rates go deeply negative. LUNA: $80 → $35 (-56% in 5 hours)." },
+        { "time": "T+9h | 2022-05-09 21:00 UTC", "desc": "LFG announces it has deployed ~$1.5B BTC. UST at $0.72. The death spiral is confirmed. BTC: $29,700 → $27,500. FCSS equivalent: ~78." },
+        { "time": "T+18h | 2022-05-10 06:00 UTC", "desc": "UST at $0.31. LUNA at $2.00. LFG has exhausted BTC reserves ($3.5B sold). BTC at $26,200 (-19.4%). Liquidations: $1.1B across crypto." }
+      ],
+      "metricsNarrative": "Contagion effect observed as LFG sold BTC to defend UST peg. Death spiral led to hyperinflation of LUNA and total loss of confidence.",
+      "lessons": [
+        "1. Stablecoin depegs are slow-motion crashes (hours, not minutes). Start communications early.",
+        "2. Watch on-chain treasury wallets of major protocols.",
+        "3. Cross-asset contagion: treat stablecoin depegs as a SENTINEL ELEVATED alert regardless of price thresholds."
+      ]
+    },
+    {
+      "id": "leverage_flush_2021",
+      "name": "2021 Leverage Flush",
+      "subtitle": "Sep 2021",
+      "symbol": "BTCUSDT",
+      "startTime": "2021-09-07T07:00:00Z",
+      "endTime": "2021-09-07T13:00:00Z",
+      "dataSourceUrl": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2021-09.zip",
+      "cause": "OVERLEVERAGED MARKET + EVENT SELL-OFF",
+      "causeTag": "OVERLEVERAGED_MARKET",
+      "difficulty": "SEVERE",
+      "stats": {
+        "maxDropPct": -17.9,
+        "durationHours": 6,
+        "peakLiqUSD": 3500000000,
+        "totalLiqUSD": 3500000000,
+        "sizeMB": "10.5 MB"
+      },
+      "shortSummary": "El Salvador's Bitcoin Law took effect — instead of pumping, a 17% crash flushed excessive leverage built during the pre-event run-up.",
+      "rootCause": "El Salvador officially made BTC legal tender. The market had rallied in anticipation. On the event day, a classic 'sell the news' dynamic played out but was dramatically amplified by extreme leverage. Overleveraged longs were wiped out in cascading fashion.",
+      "keyMoments": [
+        { "time": "T-0 | 2021-09-07 07:00 UTC", "desc": "BTC: ~$52,600. El Salvador passes BTC legal tender law. Open Interest: $14.3B. Funding rate: +0.09% (market VERY long)." },
+        { "time": "T+30m | 2021-09-07 07:30 UTC", "desc": "BTC fails to break $53,000. $200M in long positions liquidated as price dips to $50,800." },
+        { "time": "T+1h | 2021-09-07 08:00 UTC", "desc": "Price breaks $50k support, triggering cascading long liquidations. $800M in longs wiped in 30 minutes. Funding flips from +0.09% to -0.01% in under 1 hour." },
+        { "time": "T+2h | 2021-09-07 09:00 UTC", "desc": "BTC: $52,600 → $43,200 (-17.9%). $3.5B in longs liquidated in 2 hours. FCSS equivalent: ~82. Long/short ratio: 1.18 → 0.71." },
+        { "time": "T+3h | 2021-09-07 10:00 UTC", "desc": "Bounce begins at $43,000. Funding rate at -0.04%. BTC recovers to $46,800 within 2 hours. Crash was entirely leverage-driven." }
+      ],
+      "metricsNarrative": "Massive leverage buildup indicated by +0.09% funding rate, quickly flushed as the psychological 'sell the news' event occurred.",
+      "lessons": [
+        "1. Pre-event funding rate > +0.07% is a critical warning sign. Lower liquidation alert threshold by 50% before the event.",
+        "2. When funding flips from positive to negative mid-crash, the worst is likely over.",
+        "3. 'Sell the news' events are predictable by date. Have templates ready."
+      ]
+    }
+  ]
+}

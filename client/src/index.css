@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-primary font-sans antialiased;
+  }
+}
+
+/* Numeric variants for live numbers */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,163 @@
+{
+  "_notes": {
+    "sources": [
+      "Binance liquidation data 2023-2026 (Coinglass, CryptoQuant)",
+      "BitMEX 9-year funding rate analysis (Q2 2025)",
+      "TradingView OI Z-score default thresholds (±2.5)",
+      "Arxiv liquidation cascade research (2025-2026)",
+      "Kraken: funding >0.10% per 8h = extreme overleveraging",
+      "June 2026 BTC crash: $3B liquidated / ~$450M in single cascade events"
+    ],
+    "liqUSD_rationale": "Normal BTC perpetual market sees $10M-$50M/hr total liquidations. $1M/60s = elevated, $5M/60s = stress, $15M/60s = cascade event.",
+    "liqCount_rationale": "Typical quiet market: 5-20 liq events/60s across all assets. >50 = elevated, >100 = cascade warning.",
+    "fundingZ_rationale": "Standard stat threshold: |Z|>2.0 is notable, |Z|>2.5 is extreme (TradingView default). Funding >0.10%/8h on Kraken = overleveraged.",
+    "priceChange_rationale": "BTC 3% move in 5min is significant (June 2026 cascade was 3.6% in hours). ETH/SOL are more volatile so thresholds are higher.",
+    "oiChange_rationale": "OI swinging >5% in 30min signals aggressive position opening/closing. >8% warrants alert.",
+    "orderFlowImbalance_rationale": "OFI is 0-100 (50=balanced). Below 30 or above 70 = notable imbalance. Below 20 / above 80 = aggressive directional flow.",
+    "longShortRatio_rationale": "Normal range: 0.9-1.5. Below 0.7 = extreme short bias (potential short squeeze). Above 2.5 = extreme long crowding (liquidation cascade risk).",
+    "supportLoad_rationale": "Derived from real liq count. >20 real events/60s across all assets = support team stress."
+  },
+  "global": {
+    "liqCount60s": {
+      "value": 80,
+      "severity": "HIGH",
+      "enabled": true,
+      "cooldownMs": 180000,
+      "rationale": "Sum across all 3 assets. Normal market: 5-20/60s. 80+ = elevated cascade risk."
+    },
+    "liqUSD60s": {
+      "value": 2000000,
+      "severity": "HIGH",
+      "enabled": true,
+      "cooldownMs": 180000,
+      "rationale": "$2M/60s = significant stress. $5M+ = wave event. Based on Coinglass data: typical cascade starts at ~$1-3M/min spike."
+    },
+    "supportLoad": {
+      "value": 25,
+      "severity": "LOW",
+      "enabled": true,
+      "cooldownMs": 300000,
+      "rationale": "Estimated support tickets derived from liq count. >25 = staff load alert."
+    },
+    "liqWaveUSD": {
+      "value": 5000000,
+      "severity": "CRITICAL",
+      "enabled": true,
+      "cooldownMs": 300000,
+      "rationale": "$5M/60s + 25+ events = liquidation wave. Confirmed by Arxiv cascade research."
+    }
+  },
+  "perAsset": {
+    "BTCUSDT": {
+      "priceChangePct": {
+        "value": 2.5,
+        "severity": "HIGH",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "BTC moving >2.5% in 5min is a major move. June 2026 cascade was 3.6% over hours — 2.5% in 5min is faster and more alarming."
+      },
+      "fundingRateZScore": {
+        "value": 2.0,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "Z>2.0 = statistically extreme. TradingView default is 2.5 but 2.0 gives earlier warning for exchange ops."
+      },
+      "oiChangePct": {
+        "value": 5.0,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "OI swinging 5%+ in a 30min window = aggressive position change. Cascade research shows 25-70% OI clearance during major events — 5% is early warning."
+      },
+      "longShortRatio": {
+        "value": 0.75,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "Ratio below 0.75 = shorts heavily dominating, potential short squeeze setup."
+      },
+      "orderFlowImbalance": {
+        "value": 30,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 600000,
+        "rationale": "Deviation from 50 (balanced). Fires when buyPct < 20 or > 80 (30pts from center). Normal markets oscillate 45-55. 10min cooldown prevents spam."
+      }
+    },
+    "ETHUSDT": {
+      "priceChangePct": {
+        "value": 3.0,
+        "severity": "HIGH",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "ETH is more volatile than BTC. 3% in 5min = significant. June 2026 saw ETH drop 3.4% in a cascade session."
+      },
+      "fundingRateZScore": {
+        "value": 2.0,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "Same statistical threshold as BTC."
+      },
+      "oiChangePct": {
+        "value": 6.0,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "ETH OI is more volatile. 6% swing = meaningful structural change."
+      },
+      "longShortRatio": {
+        "value": 0.75,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "Same short-squeeze threshold as BTC."
+      },
+      "orderFlowImbalance": {
+        "value": 30,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 600000,
+        "rationale": "Same deviation threshold as BTC. 10min cooldown."
+      }
+    },
+    "SOLUSDT": {
+      "priceChangePct": {
+        "value": 4.0,
+        "severity": "HIGH",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "SOL is higher beta. 4% in 5min = notable. XRP dropped 8.2% in the June 2026 cascade — SOL typically moves 1.5-2x BTC."
+      },
+      "fundingRateZScore": {
+        "value": 2.5,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "Slightly higher threshold for SOL given naturally higher funding volatility."
+      },
+      "oiChangePct": {
+        "value": 7.0,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "SOL OI swings more aggressively. 7% threshold avoids noise."
+      },
+      "longShortRatio": {
+        "value": 0.7,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 300000,
+        "rationale": "Slightly lower threshold — SOL longs tend to be more aggressive."
+      },
+      "orderFlowImbalance": {
+        "value": 30,
+        "severity": "MEDIUM",
+        "enabled": true,
+        "cooldownMs": 600000,
+        "rationale": "Same deviation threshold across all assets."
+      }
+    }
+  }
+}

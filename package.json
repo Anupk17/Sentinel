@@ -1,0 +1,18 @@
+{
+  "name": "sentinel",
+  "version": "1.0.0",
+  "description": "Flash Crash Incident Response System",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev:server": "nodemon server/index.js",
+    "dev:client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.14",
+    "onnxruntime-node": "^1.30.0",
+    "twitter-api-v2": "^1.29.1",
+    "ws": "^8.21.3"
+  }
+}

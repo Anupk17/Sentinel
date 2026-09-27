@@ -1,0 +1,3 @@
+{
+  "ignore": ["server/config/thresholds.json", "server/ml/*.onnx", "client/*"]
+}
