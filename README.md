@@ -41,13 +41,16 @@
 
 ## ⚡ Overview
 
-Crypto derivatives markets operate 24/7 with extreme leverage and fragmented cross-exchange liquidity. In cascading liquidation cascades and liquidity vacuum events, price action deteriorates within seconds, leading to catastrophic slippage, exchange outages, and bad debt.
+Crypto derivatives markets operate 24/7 with high leverage and fragmented cross-exchange liquidity. During cascading liquidations and liquidity-vacuum events, prices can deteriorate within seconds, causing severe slippage, exchange disruptions, and potential bad debt.
 
-**Sentinel** bridges the gap between raw market telemetry, predictive machine learning, and rapid operational response:
-1. **Detects**: Sub-second ingestion of Binance Futures trade, mark price, order book velocity, and forced liquidation feeds.
-2. **Predicts**: Computes the **Flash Crash Susceptibility Score (FCSS)** every 5 seconds alongside ONNX-powered ML early-warning neural inference.
-3. **Investigates**: Deploys autonomous AI agents (powered by Groq) to analyze market context, order flow anomalies, and auto-triage liquidation disputes over $10,000.
-4. **Responds**: Dispatches multi-channel alerts (Telegram Bot, Twitter/X broadcast), logs audit trails with decision quality scoring, and exports audit-ready incident reports.
+**Sentinel** is designed to help detect, assess, and respond to these events by combining real-time market monitoring, machine-learning-based crash-risk signals, AI-assisted investigation, and coordinated incident alerts.
+
+It bridges the gap between raw market telemetry, predictive analytics, and operational response:
+
+1. **Detects:** Ingests Binance Futures trade, mark-price, order-book, and liquidation data.
+2. **Predicts:** Calculates the **Flash Crash Susceptibility Score (FCSS)** every 5 seconds and runs ONNX-based early-warning inference.
+3. **Investigates:** Uses Groq-powered AI agents to analyze market conditions and triage high-value liquidation disputes.
+4. **Responds:** Supports multi-channel alerts, incident audit trails, and incident-report exports.
 
 ---
 
